@@ -21,11 +21,11 @@ import os
 
 # initialize the initial learning rate, number of epochs to train for,
 # and batch size
-INIT_LR = 1e-4
-EPOCHS = 20
-BS = 32
+INIT_LR = 1e-4   #learning rate 0.0001
+EPOCHS = 10    
+BS = 32         #Batach size
 
-DIRECTORY = r"\dataset"
+DIRECTORY = os.path.dirname(__file__) + "\dataset"
 CATEGORIES = ["with_mask", "without_mask"]
 
 # grab the list of images in our dataset directory, then initialize
@@ -69,6 +69,7 @@ aug = ImageDataGenerator(
 
 # load the MobileNetV2 network, ensuring the head FC layer sets are
 # left off
+
 baseModel = MobileNetV2(weights="imagenet", include_top=False,
 	input_tensor=Input(shape=(224, 224, 3)))
 
